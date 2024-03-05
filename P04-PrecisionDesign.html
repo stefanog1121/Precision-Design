@@ -6,42 +6,71 @@
     <title>Precision Design Website</title>
 </head>
 
-<!--- https://coolors.co/palette/0d1b2a-1b263b-415a77-778da9-e0e1dd -->
-<!-- Maybe this color palette with the logo and colors Ryan has?-->
+<!-- https://coolors.co/palette/0d1b2a-1b263b-415a77-778da9-e0e1dd -->
+<!-- Maybe this color palette with the logo and colors Ryan has? -->
 
-<!--Also, actual design of the content is very rough/ugly right now and I can help clean it up before we submit.-->
+<!-- Also, actual design of the content is very rough/ugly right now and I can help clean it up before we submit. -->
+
+<!-- https://www.studio-kiln.com/ -->
+<!-- ^ Loosely basing off this studio's website. -->
+
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
     body {
-        background-color: #E0E1DD;
+        background-color: #778DA9;
+        font-family: 'Arvo', serif;
+        margin: 0;
+        padding: 0;
+        height: 300vh;
     }
 
-    #navBar {
+    #topBar {
         width: 100%;
-        height: 10vh;
-        background-color: #778DA9;
+        height: 85vh;
+        background-color: #E0E1DD;
         display: flex;
         align-items: flex-start;
         justify-content: flex-start;
+        transition: 0.5s;
 
     }
 
-    #logo {
+    #teamName {
         display: flex;
-        width: 10vw;
+        position: relative;
+        width: 40vw;
         height: 100%;
-        background-color: #FFFDDD;
         align-items: center; 
         justify-content: center; 
+        font-size: 60px;
+        transition: 0.5s;
     }
+
 </style>
 <body>
-    <div id="navBar">
-        <div id="logo">
-           <p> TEMP - Logo Here</p>
+    <div id="topBar">
+        <div id="teamName">
+           <h1> Precision Design. </h1>
             
         </div>
-        <p> TEMP - Nav Bar Tabs Here</p>
+
     </div>
 
 </body>
+<script>
+    window.onscroll = function() {resize()};
+
+    function resize() {
+        if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+            document.getElementById("teamName").style.fontSize = "12px";
+            document.getElementById("teamName").style.width = "10vw";
+            document.getElementById("topBar").style.height = "15vh";
+        } else {
+            document.getElementById("teamName").style.fontSize = "60px";
+            document.getElementById("teamName").style.width = "40vw";
+            document.getElementById("topBar").style.height = "85vh";
+        }
+    }
+</script>
 </html>
