@@ -18,21 +18,22 @@
     @import url('https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
     body {
-        background-color: #778DA9;
+        background-color: #E0E1DD;
         font-family: 'Arvo', serif;
         margin: 0;
         padding: 0;
-        height: 250vh;
+        height: 150vh;
+        scroll-snap-type: y mandatory;
+        overflow-y: scroll;
     }
 
     #topBar {
         width: 100%;
-        height: 85vh;
-        background-color: #E0E1DD;
+        height: 45vh;
         display: flex;
         align-items: flex-start;
         justify-content: space-between;
-        transition: 0.5s;
+        transition: 0.35s;
         position: fixed;
         top: 0;
         z-index: 100;
@@ -46,8 +47,9 @@
         padding: 0 5px;
         align-items: center; 
         justify-content: center; 
-        font-size: 50px;
-        transition: 0.75s;
+        font-size: 55px;
+        transition: 0.35s;
+        top: 20vh;
     }
 
     #infoBoxes {
@@ -55,6 +57,7 @@
         align-items: flex-start; 
         justify-content: space-between;
         padding: 20px;
+        mix-blend-mode: difference;
     }
     
     .linkBox {
@@ -70,41 +73,9 @@
         font-size: 12px;
     }
 
-    #ring1, #ring2, #ring3 {
-        border-radius: 50%;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-    }
-
-    #ring1 {
-        background-color: #E0E1DD;
-        width: 200vw;
-        height: 200vw;
-        max-width: 200vh;
-        max-height: 200vh;
-    }
-
-    #ring2 {
-        background-color: #778DA9;
-        width: 140vw;
-        height: 140vw;
-        max-width: 140vh;
-        max-height: 140vh;
-    }
-
-    #ring3 {
-        background-color: #E0E1DD;
-        width: 80vw;
-        height: 80vw;
-        max-width: 80vh;
-        max-height: 80vh;
-    }
-
     #sloganAbstract {
         position: relative;
-        height: 100vh;
+        height: 40vh;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -115,8 +86,49 @@
         position: relative;
         width: 100%;
         height: 100%;
-        top: 30vh;
+        top: -15vh;
+        left: 15vw;
+        scroll-snap-align: start;
+
     }
+
+    #ring1, #ring2, #ring3 {
+        border-radius: 50%;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        scroll-snap-stop: always;
+
+    }
+
+    #ring1 {
+        background-color: #1B263B;
+        width: 120vw;
+        height: 120vw;
+        max-width: 120vh;
+        max-height: 120vh;
+    }
+
+    #ring2 {
+        background-color: #778DA9;
+        width: 80vw;
+        height: 80vw;
+        max-width: 80vh;
+        max-height: 80vh;
+    }
+
+    #ring3 {
+        background-color: #E0E1DD;
+        width: 40vw;
+        height: 40vw;
+        max-width: 40vh;
+        max-height: 40vh;
+        display: flex; 
+        justify-content: center;
+        align-items: center; 
+    }
+
 </style>
 
 <body>
@@ -138,6 +150,7 @@
             <div id="ring1">
                 <div id="ring2">
                     <div id="ring3">
+                        <h2>designing <br> with <br> vision*</h2>
                     </div>
                 </div>
             </div>
@@ -152,14 +165,16 @@
         var teamName = document.getElementById("teamName");
         var topBar = document.getElementById("topBar");
 
-        if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+        if (document.body.scrollTop > 70 || document.documentElement.scrollTop > 70) {
             teamName.style.fontSize = "12px";
             teamName.style.width = "10vw";
+            teamName.style.top = "0"
             topBar.style.height = "10vh";
         } else {
-            teamName.style.fontSize = "50px";
+            teamName.style.fontSize = "55px";
             teamName.style.width = "40vw";
-            topBar.style.height = "85vh";
+            teamName.style.top = "20vh"
+            topBar.style.height = "45vh";
         }
     }
 </script>
