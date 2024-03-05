@@ -31,7 +31,7 @@
         background-color: #E0E1DD;
         display: flex;
         align-items: flex-start;
-        justify-content: flex-start;
+        justify-content: space-between;
         transition: 0.5s;
 
     }
@@ -43,21 +43,49 @@
         height: 100%;
         align-items: center; 
         justify-content: center; 
-        font-size: 60px;
+        font-size: 50px;
         transition: 0.5s;
     }
 
+    #infoBoxes {
+        display: flex;
+        align-items: flex-start; 
+        justify-content: space-between;
+        padding: 20px;
+    }
+    
+    .linkBox {
+        border: 2px solid #0D1B2A;
+        border-radius: 5px;
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        margin: 0 10px;
+        padding: 0 2px 0 2px; 
+        min-width: 30px; 
+        height: 30px;
+        font-size: 12px; 
+    }
 </style>
+
 <body>
     <div id="topBar">
         <div id="teamName">
            <h1> Precision Design. </h1>
             
         </div>
-
+        <div id="infoBoxes">
+            <div class="linkBox">
+                <p>@precise_design</p>
+            </div>
+            <div class="linkBox">
+                <p>contact info</p>
+            </div>
+        </div>
     </div>
 
 </body>
+
 <script>
     window.onscroll = function() {resize()};
 
@@ -67,7 +95,7 @@
             document.getElementById("teamName").style.width = "10vw";
             document.getElementById("topBar").style.height = "15vh";
         } else {
-            document.getElementById("teamName").style.fontSize = "60px";
+            document.getElementById("teamName").style.fontSize = "50px";
             document.getElementById("teamName").style.width = "40vw";
             document.getElementById("topBar").style.height = "85vh";
         }
