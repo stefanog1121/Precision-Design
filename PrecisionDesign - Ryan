@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Precision Design Website</title>
+</head>
+
+<style>
+    /* Your existing styles go here */
+
+    body {
+        background-color: #778DA9;
+        font-family: 'Arvo', serif;
+        margin: 0;
+        padding: 0;
+        height: 250vh;
+    }
+
+    #topBar {
+        width: 100%;
+        height: 85vh;
+        background-color: #E0E1DD;
+        display: flex;
+        align-items: flex-start; 
+        justify-content: space-between;
+        transition: 0.5s;
+        position: fixed;
+        top: 0;
+        z-index: 100;
+    }
+
+    #teamName {
+        display: flex;
+        position: relative;
+        width: 40vw;
+        height: 100%;
+        padding: 0 5px;
+        align-items: center; 
+        justify-content: center; 
+        font-size: 50px;
+        transition: 0.75s;
+    }
+
+    #infoBoxes {
+        display: flex;
+        align-items: flex-start; 
+        justify-content: space-between;
+        padding: 20px;
+    }
+    
+    .linkBox {
+        border: 2px solid #0D1B2A;
+        border-radius: 5px;
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        margin: 0 10px;
+        padding: 0 2px 0 2px; 
+        min-width: 30px; 
+        height: 30px;
+        font-size: 12px;
+    }
+
+    #sloganAbstract {
+        position: relative;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20vh;
+        z-index: 1;
+    }
+
+    #targetShape {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        top: 30vh;
+    }
+
+    #ring1, #ring2, #ring3 {
+        border-radius: 50%;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    #ring1 {
+        background-color: #E0E1DD;
+        width: 200vw;
+        height: 200vw;
+        max-width: 200vh;
+        max-height: 200vh;
+        z-index: 0;
+    }
+
+    #ring2 {
+        background-color: #778DA9;
+        width: 140vw;
+        height: 140vw;
+        max-width: 140vh;
+        max-height: 140vh;
+        z-index: 0;
+    }
+
+    #ring3 {
+        background-color: #E0E1DD;
+        width: 80vw;
+        height: 80vw;
+        max-width: 80vh;
+        max-height: 80vh;
+        z-index: 0;
+    }
+
+    #abstractTopics {
+        position: relative;
+        z-index: 2; /* Set a higher z-index to appear above the rings */
+        padding: 20px;
+    }
+
+    #abstractTopics h3 {
+        color: #0D1B2A;
+        font-size: 24px;
+    }
+
+    #abstractTopics li {
+        color: black;
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+</style>
+
+<body>
+    <div id="topBar">
+        <div id="teamName">
+           <h1>Precision Design</h1>
+        </div>
+        <div id="infoBoxes">
+            <div class="linkBox">
+                <p>@precise_design</p>
+            </div>
+            <div class="linkBox">
+                <p>contact info</p>
+            </div>
+        </div>
+    </div>
+    <div id="sloganAbstract">
+        <div id="targetShape">
+            <div id="ring1"></div>
+            <div id="ring2"></div>
+            <div id="ring3"></div>
+        </div>
+    </div>
+    <div id="abstractTopics">
+        <h3>Design Philosophy</h3>
+        <li>To look over information based on what people are looking for. Ask users what they would like
+            to see in a design and what would have the least amount of complexity</li>
+
+        <h3>Approach to Problem Solving</h3>
+        <li>Centered on user/developer collaboration, our people-focused approach puts our clients directly
+            in the development process. The client is considered to be the final decider in problems
+            encountered during creation, and at the deepest level what is returned to them should represent
+            the closest realization of their desires possible.</li>
+
+        <h3>Core Values</h3>
+        <li>At the core of our business, we value the creativity and innovation exhibited by our various
+            enthusiastic employees. An end product is only as exemplary as the developers behind it, and our
+            people strive to continuously create high-quality products that leave customers with a high sense
+            of satisfaction.</li>
+
+        <h3>Client Relationships</h3>
+        <li>Creating a way to communicate with clients by creating surveys or feedback links to see what
+            can be improved.</li>
+
+        <h3>Innovation and Trends</h3>
+        <li>Understanding and utilizing trends are very important to our company. It is the core of every
+            successful business. However, our focus will not only be on trends and we will be experimental
+            with some of our approaches. Staying stagnant will not be a focus of ours and innovation will be
+            a key focus.</li>
+    </div>
+</body>
+
+<script>
+    window.onscroll = function() {resize()};
+
+    function resize() {
+        var teamName = document.getElementById("teamName");
+        var topBar = document.getElementById("topBar");
+
+        if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+            teamName.style.fontSize = "12px";
+            teamName.style.width = "10vw";
+            topBar.style.height = "10vh";
+        } else {
+            teamName.style.fontSize = "50px";
+            teamName.style.width = "40vw";
+            topBar.style.height = "85vh";
+        }
+    }
+</script>
+</html>
