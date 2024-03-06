@@ -207,6 +207,15 @@
     #returnButton:hover {
         background-color: lightgrey;
     }
+  #teamMembersButton button {
+      background-color: #415A77;
+      color: #E0E1DD; 
+      border: none;
+      padding: 10px 20px; 
+      font-size: 16px;
+      cursor: pointer; 
+      border-radius: 5px; 
+  }
 </style>
 
 <body onload="topicScroll(1)">
@@ -234,7 +243,20 @@
             </div>
         </div>
     </div>
+  <div id="teamMembersButton">
+      <button onclick="toggleTeamMembers()">Team Members</button>
+  </div>
 
+
+  <div id="teamMembers" style="display: none;">
+      <ul>
+          <li>Cayleigh</li>
+          <li>Rigby</li>
+          <li>Stefan</li>
+          <li>Ryan</li>
+          <li>Fitsum</li>
+      </ul>
+  </div>
     <div id="abstractButtons">
         <h1> our abstract.</h1>
         <div id="buttonWrapper">
@@ -325,6 +347,15 @@
         jumpTo(next);
         setTimeout(function() {topicScroll(next); }, 5000);
     }
+  function toggleTeamMembers() {
+      var teamMembers = document.getElementById("teamMembers");
+
+      if (teamMembers.style.display === "none") {
+          teamMembers.style.display = "block";
+      } else {
+          teamMembers.style.display = "none";
+      }
+  }
 
 </script>
 </html>
