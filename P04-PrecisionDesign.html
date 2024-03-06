@@ -24,11 +24,14 @@
         padding: 0;
         scroll-snap-type: y mandatory;
         overflow-y: scroll;
+        overflow-x: hidden;
+        height: auto;
+        width: 100%
     }
 
     #topBar {
         width: 100%;
-        height: 45vh;
+        height: 80vh;
         display: flex;
         align-items: flex-start;
         justify-content: space-between;
@@ -42,11 +45,11 @@
         display: flex;
         position: relative;
         width: 40vw;
-        height: 100%;
-        padding: 0 5px;
+        height: auto;
+        padding: 10px 0 0 15px;
         align-items: center; 
         justify-content: center; 
-        font-size: 55px;
+        font-size: 60px;
         transition: 0.35s;
         top: 20vh;
     }
@@ -69,35 +72,38 @@
         padding: 0 2px 0 2px; 
         min-width: 30px; 
         height: 30px;
-        font-size: 12px;
+        font-size: 14px;
     }
 
-    #sloganAbstract {
+    #target {
         position: relative;
-        height: 40vh;
+        width: auto;
+        height: auto;
+        overflow: auto;
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-top: 100vh;
+        top: 45vh;
+        left: 20vw;
     }
 
     #targetShape {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 55vw;
-        left: 125vh;
+        position: relative;
+        width: 1055px;
+        height: 1055px;
         scroll-snap-align: start;
+        overflow: clip;
+        z-index: 10;
     }
 
     #ring1, #ring2, #ring3 {
         border-radius: 50%;
-        position: absolute;
+        position: relative;
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
         scroll-snap-stop: always;
-
+        overflow: clip;
     }
 
     #ring1 {
@@ -127,23 +133,46 @@
         align-items: center; 
     }
 
-    #targetAbstract {
-        position: absolute;
-        height: auto; 
+    #abstractButtons {
+        background-color: #415A77;
         display: flex;
-        justify-content: center;
-        align-items: center;
+        flex-direction: column;
+        align-items: center; 
+        width: 98%;
+        border-radius: 1rem;
+        height: auto; 
+        margin-top: 20px;
+        margin-left: auto; 
+        margin-right: auto;
+        position: relative;
+        top: 55vh;
     }
 
-    #abstractTopics {
-        position: relative;
-        top: 130vh; 
-        width: 100%;
-        display: block; 
-        padding: 20px; 
+    #buttonWrapper {
+        justify-content: center; 
+        display: flex; 
+        flex-direction: row; 
+        align-items: center;
+        gap: 40px;
     }
     .absBut {
+        background-color: #E0E1DD;
         height: 10vh;
+        width: 15vw;
+        border: 2px solid #0D1B2A;
+        font-family: 'Arvo', serif;
+        font-size: 18px;
+        border-radius: 1rem;
+    }
+    .absBut:hover {
+        background-color: #778DA9 !important;
+        color: #E0E1DD !important;
+    }
+
+    #abstractText {
+        background-color: #E0E1DD;
+        height: 10vh;
+        width: 80%;
         border: 2px solid #0D1B2A;
         font-family: 'Arvo', serif;
         border-radius: 5px;
@@ -177,6 +206,44 @@
     }
 </style>
 
+<body onload="topicScroll(1)">
+    <div id="topBar">
+        <div id="teamName">
+           <h1> Precision Design. </h1>
+        </div>
+        <div id="infoBoxes">
+            <div class="linkBox">
+                <p>@precise_design</p>
+            </div>
+            <div class="linkBox">
+                <p>contact info</p>
+            </div>
+        </div>
+    </div>
+    <div id="target">
+        <div id="targetShape">
+            <div id="ring1">
+                <div id="ring2">
+                    <div id="ring3">
+                        <h2>designing <br> with <br> vision*</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="abstractButtons">
+        <h1> our abstract.</h1>
+        <div id="buttonWrapper">
+                <button id="1b" class="absBut" onclick="jumpTo(1)">Design Philosophy</button>
+                <button id="2b" class="absBut" onclick="jumpTo(2)">Approach to Problem Solving</button>
+                <button id="3b" class="absBut" onclick="jumpTo(3)">Core Values</button>
+                <button id="4b" class="absBut" onclick="jumpTo(4)">Client Relationships</button>
+                <button id="5b" class="absBut" onclick="jumpTo(5)">Innovation and Trends</button>
+        </div>
+        <div id="abstractText">
+
+        </div>
 <body>
     <div id = "mainPage">
         <div id="topBar">
@@ -248,7 +315,7 @@
             </div>
         </div>
     </div>
-
+    
     <div id = "errorPage" style = "display: none; text-align: center; background-color: white;">
         <h1 id = "errorSign"><b>404: PAGE NOT FOUND</b></h1>
         <h2>Uh oh! We can't seem to find the page you're looking for.</h2>
@@ -273,15 +340,62 @@
         var topBar = document.getElementById("topBar");
 
         if (document.body.scrollTop > 70 || document.documentElement.scrollTop > 70) {
-            teamName.style.fontSize = "12px";
+            teamName.style.fontSize = "16px";
             teamName.style.width = "10vw";
             teamName.style.top = "0"
             topBar.style.height = "10vh";
         } else {
-            teamName.style.fontSize = "55px";
+            teamName.style.fontSize = "60px";
             teamName.style.width = "40vw";
             teamName.style.top = "20vh"
-            topBar.style.height = "45vh";
+            topBar.style.height = "80vh";
+        }
+    }
+
+    function jumpTo(section) {
+        let topics = 5; 
+        for (let i = 1; i <= topics; i++) {
+            let button = document.getElementById(i + 'b');
+            if (button.id !== section + 'b') {
+                button.style.backgroundColor = '#E0E1DD'; 
+                button.style.color = '#0D1B2A';
+            }
+        }
+        
+        let selectedButton = document.getElementById(section + 'b');
+        selectedButton.style.backgroundColor = '#778DA9'; 
+        selectedButton.style.color = '#E0E1DD'; 
+
+        var abstractText = document.getElementById("abstractText");
+        switch(section) {
+            case 1:
+                abstractText.innerHTML = `<p>To look over information based on what people are looking for. Ask users what they would like
+                to see in a design and what would have the least amount of complexity.</p>`;
+                break;
+            case 2:
+                abstractText.innerHTML = `<p>Centered on user/developer collaboration, our people-focused approach puts our clients directly
+                in the development process. The client is considered to be the final decider in problems
+                encountered during creation, and at the deepest level what is returned to them should represent
+                the closest realization of their desires possible.</p>`;
+                break;
+            case 3:
+                abstractText.innerHTML = `<p>At the core of our business, we value the creativity and innovation exhibited by our various
+                enthusiastic employees. An end product is only as exemplary as the developers behind it, and our
+                people strive to continuously create high-quality products that leave customers with a high sense
+                of satisfaction.</p>`;
+                break;
+            case 4:
+                abstractText.innerHTML = `<p>Creating a way to communicate with clients by creating surveys or feedback links to see what
+                can be improved.</p>`;
+                break;
+            case 5:
+                abstractText.innerHTML = `<p>Understanding and utilizing trends are very important to our company. It is the core of every
+                successful business. However, our focus will not only be on trends and we will be experimental
+                with some of our approaches. Staying stagnant will not be a focus of ours and innovation will be
+                a key focus.</p>`;
+                break;
+            default:
+                abstractText.innerHTML = `<p>Select a topic to see more information.</p>`;
         }
     }
 
@@ -289,5 +403,13 @@
         document.getElementById(visiblePage).style.display='block';
         document.getElementById(hiddenPage).style.display='none';
     }
+
+    function topicScroll(i) {
+        var topics = 5;
+        let next = i % topics + 1; 
+        jumpTo(next);
+        setTimeout(function() {topicScroll(next); }, 5000);
+    }
+
 </script>
 </html>
