@@ -6,25 +6,33 @@
     <title>Precision Design Website</title>
 </head>
 
+<!-- https://coolors.co/palette/0d1b2a-1b263b-415a77-778da9-e0e1dd -->
+<!-- Maybe this color palette with the logo and colors Ryan has? -->
+
+<!-- Also, actual design of the content is very rough/ugly right now and I can help clean it up before we submit. -->
+
+<!-- https://www.studio-kiln.com/ -->
+<!-- ^ Loosely basing off this studio's website. -->
+
 <style>
-    /* Your existing styles go here */
+    @import url('https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
     body {
-        background-color: #778DA9;
+        background-color: #E0E1DD;
         font-family: 'Arvo', serif;
         margin: 0;
         padding: 0;
-        height: 250vh;
+        scroll-snap-type: y mandatory;
+        overflow-y: scroll;
     }
 
     #topBar {
         width: 100%;
-        height: 85vh;
-        background-color: #E0E1DD;
+        height: 45vh;
         display: flex;
-        align-items: flex-start; 
+        align-items: flex-start;
         justify-content: space-between;
-        transition: 0.5s;
+        transition: 0.35s;
         position: fixed;
         top: 0;
         z-index: 100;
@@ -38,8 +46,9 @@
         padding: 0 5px;
         align-items: center; 
         justify-content: center; 
-        font-size: 50px;
-        transition: 0.75s;
+        font-size: 55px;
+        transition: 0.35s;
+        top: 20vh;
     }
 
     #infoBoxes {
@@ -47,6 +56,7 @@
         align-items: flex-start; 
         justify-content: space-between;
         padding: 20px;
+        mix-blend-mode: difference;
     }
     
     .linkBox {
@@ -64,19 +74,20 @@
 
     #sloganAbstract {
         position: relative;
-        height: 100vh;
+        height: 40vh;
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-top: 20vh;
-        z-index: 1;
+        margin-top: 100vh;
     }
 
     #targetShape {
-        position: relative;
+        position: absolute;
         width: 100%;
         height: 100%;
-        top: 30vh;
+        top: 55vw;
+        left: 125vh;
+        scroll-snap-align: start;
     }
 
     #ring1, #ring2, #ring3 {
@@ -85,75 +96,96 @@
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
+        scroll-snap-stop: always;
+
     }
 
     #ring1 {
-        background-color: #E0E1DD;
-        width: 200vw;
-        height: 200vw;
-        max-width: 200vh;
-        max-height: 200vh;
-        z-index: 0;
+        background-color: #1B263B;
+        width: 135vw;
+        height: 135vw;
+        max-width: 135vh;
+        max-height: 135vh;
     }
 
     #ring2 {
         background-color: #778DA9;
-        width: 140vw;
-        height: 140vw;
-        max-width: 140vh;
-        max-height: 140vh;
-        z-index: 0;
+        width: 90vw;
+        height: 90vw;
+        max-width: 90vh;
+        max-height: 90vh;
     }
 
     #ring3 {
         background-color: #E0E1DD;
-        width: 80vw;
-        height: 80vw;
-        max-width: 80vh;
-        max-height: 80vh;
-        z-index: 0;
+        width: 45vw;
+        height: 45vw;
+        max-width: 45vh;
+        max-height: 45vh;
+        display: flex; 
+        justify-content: center;
+        align-items: center; 
+    }
+
+    #targetAbstract {
+        position: absolute;
+        height: auto; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     #abstractTopics {
         position: relative;
-        z-index: 2; /* Set a higher z-index to appear above the rings */
-        padding: 20px;
+        top: 130vh; 
+        width: 100%;
+        display: block; 
+        padding: 20px; 
+    }
+    .absBut {
+        height: 10vh;
+        border: 2px solid #0D1B2A;
+        font-family: 'Arvo', serif;
+        border-radius: 5px;
+        display: flex; 
+        align-items: center; 
+        justify-content: center;
+        transition: height 0.25s;
+        overflow: hidden;
     }
 
-    #abstractTopics h3 {
-        color: #0D1B2A;
-        font-size: 24px;
-    }
 
-    #abstractTopics li {
-        color: black;
-        font-size: 24px;
-        margin-bottom: 10px;
-    }
 </style>
 
 <body>
-    <div id = "mainPage">
-        <div id="topBar">
-            <div id="teamName">
-               <h1>Precision Design</h1>
+    <div id="topBar">
+        <div id="teamName">
+           <h1> Precision Design. </h1>
+        </div>
+        <div id="infoBoxes">
+            <div class="linkBox">
+                <p>@precise_design</p>
             </div>
-            <div id="infoBoxes">
-                <div class="linkBox">
-                    <p>@precise_design</p>
-                </div>
-                <div class="linkBox">
-                    <p>contact info</p>
+            <div class="linkBox">
+                <p>contact info</p>
+            </div>
+        </div>
+    </div>
+    <div id="targetAbstract">
+        <div id="targetShape">
+            <div id="ring1">
+                <div id="ring2">
+                    <div id="ring3">
+                        <h2>designing <br> with <br> vision*</h2>
+                    </div>
                 </div>
             </div>
         </div>
-        <div id="sloganAbstract">
-            <div id="targetShape">
-                <div id="ring1"></div>
-                <div id="ring2"></div>
-                <div id="ring3"></div>
-            </div>
+        <div id="abstractButtons">
+            <button class="absBut" onclick="openAbstractButton(1)">Design Philosophy</button>
+ 
         </div>
+        <!--
         <div id="abstractTopics">
             <button onClick = "return error('errorPage','mainPage')">Previous Projects (Test Button, Delete Later)</button>
             <h3>Design Philosophy</h3>
@@ -182,6 +214,7 @@
                 with some of our approaches. Staying stagnant will not be a focus of ours and innovation will be
                 a key focus.</li>
         </div>
+        -->
     </div>
 
     <div id = "errorPage" style = "display: none">
@@ -193,6 +226,7 @@
         <p>
         <button onClick = "return error('mainPage','errorPage')">Return to Home Page</button>
     </div>
+    </div>
 </body>
 
 <script>
@@ -202,14 +236,16 @@
         var teamName = document.getElementById("teamName");
         var topBar = document.getElementById("topBar");
 
-        if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+        if (document.body.scrollTop > 70 || document.documentElement.scrollTop > 70) {
             teamName.style.fontSize = "12px";
             teamName.style.width = "10vw";
+            teamName.style.top = "0"
             topBar.style.height = "10vh";
         } else {
-            teamName.style.fontSize = "50px";
+            teamName.style.fontSize = "55px";
             teamName.style.width = "40vw";
-            topBar.style.height = "85vh";
+            teamName.style.top = "20vh"
+            topBar.style.height = "45vh";
         }
     }
 
