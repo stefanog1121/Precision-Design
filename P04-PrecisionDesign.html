@@ -26,7 +26,8 @@
         overflow-y: scroll;
         overflow-x: hidden;
         height: auto;
-        width: 100%
+        width: 100%;
+        padding-bottom: 50px;
     }
 
     #topBar {
@@ -137,11 +138,10 @@
         background-color: #415A77;
         display: flex;
         flex-direction: column;
-        align-items: center; 
+        align-items: center;
         width: 98%;
         border-radius: 1rem;
-        height: auto; 
-        margin-top: 20px;
+        height: auto;
         margin-left: auto; 
         margin-right: auto;
         position: relative;
@@ -163,6 +163,7 @@
         font-family: 'Arvo', serif;
         font-size: 18px;
         border-radius: 1rem;
+        text-align: center;
     }
     .absBut:hover {
         background-color: #778DA9 !important;
@@ -181,6 +182,8 @@
         justify-content: center;
         transition: height 0.25s;
         overflow: hidden;
+        margin-top: 20px;
+        margin-bottom: 34px;
     }
 
     #errorSign {
@@ -242,95 +245,7 @@
                 <button id="5b" class="absBut" onclick="jumpTo(5)">Innovation and Trends</button>
         </div>
         <div id="abstractText">
-
         </div>
-<body>
-    <div id = "mainPage">
-        <div id="topBar">
-            <div id="teamName">
-               <h1> Precision Design. </h1>
-            </div>
-            <div id="infoBoxes">
-                <div class="linkBox">
-                    <p>@precise_design</p>
-                </div>
-                <div class="linkBox">
-                    <p>contact info</p>
-                </div>
-            </div>
-        </div>
-        <div id="targetAbstract">
-            <div id="targetShape">
-                <div id="ring1">
-                    <div id="ring2">
-                        <div id="ring3">
-                            <h2>Designing <br> with <br> vision*</h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="abstractButtons">
-                <button class="absBut" onclick="openAbstractButton(1)">Design Philosophy</button>
-     
-            </div>
-            <div id="abstractTopics">
-                <button onClick = "return error('errorPage','mainPage')" style = "height: 200px; background-color: red;">Previous Projects (Test Button, Delete Later)</button>
-                <!--
-                <div style = "background-color: grey; border: 2px solid black; border-radius: 5px;">
-                    <h3>Design Philosophy</h3>
-                    <li>To look over information based on what people are looking for. Ask users what they would like
-                        to see in a design and what would have the least amount of complexity</li>
-                </div>
-        
-                <div style = "background-color: grey; border: 2px solid black; border-radius: 5px;">
-                    <h3>Approach to Problem Solving</h3>
-                    <li>Centered on user/developer collaboration, our people-focused approach puts our clients directly
-                            in the development process. The client is considered to be the final decider in problems
-                            encountered during creation, and at the deepest level what is returned to them should represent
-                            the closest realization of their desires possible.</li>
-                </div>
-        
-                <div style = "background-color: grey; border: 2px solid black; border-radius: 5px;">
-                    <h3>Core Values</h3>
-                    <li>At the core of our business, we value the creativity and innovation exhibited by our various
-                            enthusiastic employees. An end product is only as exemplary as the developers behind it, and our
-                            people strive to continuously create high-quality products that leave customers with a high sense
-                            of satisfaction.</li>
-                </div>
-        
-                <div style = "background-color: grey; border: 2px solid black; border-radius: 5px;">
-                    <h3>Client Relationships</h3>
-                    <li>Creating a way to communicate with clients by creating surveys or feedback links to see what
-                        can be improved.</li>
-                </div>
-        
-                <div style = "background-color: grey; border: 2px solid black; border-radius: 5px;">
-                    <h3>Innovation and Trends</h3>
-                    <li>Understanding and utilizing trends are very important to our company. It is the core of every
-                        successful business. However, our focus will not only be on trends and we will be experimental
-                        with some of our approaches. Staying stagnant will not be a focus of ours and innovation will be
-                        a key focus.</li>
-                </div>
-            -->
-            </div>
-        </div>
-    </div>
-    
-    <div id = "errorPage" style = "display: none; text-align: center; background-color: white;">
-        <h1 id = "errorSign"><b>404: PAGE NOT FOUND</b></h1>
-        <h2>Uh oh! We can't seem to find the page you're looking for.</h2>
-        <p><b>Our designers were having a fun time in the office and appear to have sent it on an all-expenses paid trip to Floccinaucinihilipilification.</b>
-            <br>
-            Where's that? Who knows! In the meantime, here's a way to backtrack before you get just as lost as the missing page.
-        <p>
-        <button id = "returnButton" onClick = "return error('mainPage','errorPage')"><b>Return to Home Page</b></button>
-        <br>
-        <br>
-        <img src = "https://media.istockphoto.com/id/951050840/vector/broken-computer-laptop-drawing.jpg?s=612x612&w=0&k=20&c=m2-58YgqMIKHS_KwGfKFWCmA0xCpvvXlPx-eXJAQVqM="
-            style = "width: 300px; height: 300px;">
-    </div>
-    </div>
-</body>
 
 <script>
     window.onscroll = function() {resize()};
