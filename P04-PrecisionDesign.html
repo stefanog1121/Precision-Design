@@ -6,34 +6,25 @@
     <title>Precision Design Website</title>
 </head>
 
-<!-- https://coolors.co/palette/0d1b2a-1b263b-415a77-778da9-e0e1dd -->
-<!-- Maybe this color palette with the logo and colors Ryan has? -->
-
-<!-- Also, actual design of the content is very rough/ugly right now and I can help clean it up before we submit. -->
-
-<!-- https://www.studio-kiln.com/ -->
-<!-- ^ Loosely basing off this studio's website. -->
-
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+    /* Your existing styles go here */
 
     body {
-        background-color: #E0E1DD;
+        background-color: #778DA9;
         font-family: 'Arvo', serif;
         margin: 0;
         padding: 0;
-        height: 150vh;
-        scroll-snap-type: y mandatory;
-        overflow-y: scroll;
+        height: 250vh;
     }
 
     #topBar {
         width: 100%;
-        height: 45vh;
+        height: 85vh;
+        background-color: #E0E1DD;
         display: flex;
-        align-items: flex-start;
+        align-items: flex-start; 
         justify-content: space-between;
-        transition: 0.35s;
+        transition: 0.5s;
         position: fixed;
         top: 0;
         z-index: 100;
@@ -47,9 +38,8 @@
         padding: 0 5px;
         align-items: center; 
         justify-content: center; 
-        font-size: 55px;
-        transition: 0.35s;
-        top: 20vh;
+        font-size: 50px;
+        transition: 0.75s;
     }
 
     #infoBoxes {
@@ -57,7 +47,6 @@
         align-items: flex-start; 
         justify-content: space-between;
         padding: 20px;
-        mix-blend-mode: difference;
     }
     
     .linkBox {
@@ -75,21 +64,19 @@
 
     #sloganAbstract {
         position: relative;
-        height: 40vh;
+        height: 100vh;
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-top: 100vh;
+        margin-top: 20vh;
+        z-index: 1;
     }
 
     #targetShape {
         position: relative;
         width: 100%;
         height: 100%;
-        top: -15vh;
-        left: 15vw;
-        scroll-snap-align: start;
-
+        top: 30vh;
     }
 
     #ring1, #ring2, #ring3 {
@@ -98,63 +85,113 @@
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
-        scroll-snap-stop: always;
-
     }
 
     #ring1 {
-        background-color: #1B263B;
-        width: 120vw;
-        height: 120vw;
-        max-width: 120vh;
-        max-height: 120vh;
+        background-color: #E0E1DD;
+        width: 200vw;
+        height: 200vw;
+        max-width: 200vh;
+        max-height: 200vh;
+        z-index: 0;
     }
 
     #ring2 {
         background-color: #778DA9;
-        width: 80vw;
-        height: 80vw;
-        max-width: 80vh;
-        max-height: 80vh;
+        width: 140vw;
+        height: 140vw;
+        max-width: 140vh;
+        max-height: 140vh;
+        z-index: 0;
     }
 
     #ring3 {
         background-color: #E0E1DD;
-        width: 40vw;
-        height: 40vw;
-        max-width: 40vh;
-        max-height: 40vh;
-        display: flex; 
-        justify-content: center;
-        align-items: center; 
+        width: 80vw;
+        height: 80vw;
+        max-width: 80vh;
+        max-height: 80vh;
+        z-index: 0;
     }
 
+    #abstractTopics {
+        position: relative;
+        z-index: 2; /* Set a higher z-index to appear above the rings */
+        padding: 20px;
+    }
+
+    #abstractTopics h3 {
+        color: #0D1B2A;
+        font-size: 24px;
+    }
+
+    #abstractTopics li {
+        color: black;
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
 </style>
 
 <body>
-    <div id="topBar">
-        <div id="teamName">
-           <h1> Precision Design. </h1>
-        </div>
-        <div id="infoBoxes">
-            <div class="linkBox">
-                <p>@precise_design</p>
+    <div id = "mainPage">
+        <div id="topBar">
+            <div id="teamName">
+               <h1>Precision Design</h1>
             </div>
-            <div class="linkBox">
-                <p>contact info</p>
-            </div>
-        </div>
-    </div>
-    <div id="sloganAbstract">
-        <div id="targetShape">
-            <div id="ring1">
-                <div id="ring2">
-                    <div id="ring3">
-                        <h2>designing <br> with <br> vision*</h2>
-                    </div>
+            <div id="infoBoxes">
+                <div class="linkBox">
+                    <p>@precise_design</p>
+                </div>
+                <div class="linkBox">
+                    <p>contact info</p>
                 </div>
             </div>
         </div>
+        <div id="sloganAbstract">
+            <div id="targetShape">
+                <div id="ring1"></div>
+                <div id="ring2"></div>
+                <div id="ring3"></div>
+            </div>
+        </div>
+        <div id="abstractTopics">
+            <button onClick = "return error('errorPage','mainPage')">Previous Projects (Test Button, Delete Later)</button>
+            <h3>Design Philosophy</h3>
+            <li>To look over information based on what people are looking for. Ask users what they would like
+                to see in a design and what would have the least amount of complexity</li>
+    
+            <h3>Approach to Problem Solving</h3>
+            <li>Centered on user/developer collaboration, our people-focused approach puts our clients directly
+                in the development process. The client is considered to be the final decider in problems
+                encountered during creation, and at the deepest level what is returned to them should represent
+                the closest realization of their desires possible.</li>
+    
+            <h3>Core Values</h3>
+            <li>At the core of our business, we value the creativity and innovation exhibited by our various
+                enthusiastic employees. An end product is only as exemplary as the developers behind it, and our
+                people strive to continuously create high-quality products that leave customers with a high sense
+                of satisfaction.</li>
+    
+            <h3>Client Relationships</h3>
+            <li>Creating a way to communicate with clients by creating surveys or feedback links to see what
+                can be improved.</li>
+    
+            <h3>Innovation and Trends</h3>
+            <li>Understanding and utilizing trends are very important to our company. It is the core of every
+                successful business. However, our focus will not only be on trends and we will be experimental
+                with some of our approaches. Staying stagnant will not be a focus of ours and innovation will be
+                a key focus.</li>
+        </div>
+    </div>
+
+    <div id = "errorPage" style = "display: none">
+        <h1 id = "errorSign"><b>404: PAGE NOT FOUND</b></h1>
+        <h2>Uh oh! We can't seem to find the page you're looking for.</h2>
+        <p><b>Our designers were having a fun time in the office and appear to have sent it on an all-expenses paid trip to Floccinaucinihilipilification.</b>
+            <br>
+            Where's that? Who knows! In the meantime, here's a way to backtrack before you get just as lost as the missing page.
+        <p>
+        <button onClick = "return error('mainPage','errorPage')">Return to Home Page</button>
     </div>
 </body>
 
@@ -165,17 +202,20 @@
         var teamName = document.getElementById("teamName");
         var topBar = document.getElementById("topBar");
 
-        if (document.body.scrollTop > 70 || document.documentElement.scrollTop > 70) {
+        if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
             teamName.style.fontSize = "12px";
             teamName.style.width = "10vw";
-            teamName.style.top = "0"
             topBar.style.height = "10vh";
         } else {
-            teamName.style.fontSize = "55px";
+            teamName.style.fontSize = "50px";
             teamName.style.width = "40vw";
-            teamName.style.top = "20vh"
-            topBar.style.height = "45vh";
+            topBar.style.height = "85vh";
         }
+    }
+
+    function error(visiblePage, hiddenPage) {
+        document.getElementById(visiblePage).style.display='block';
+        document.getElementById(hiddenPage).style.display='none';
     }
 </script>
 </html>
