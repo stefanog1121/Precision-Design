@@ -323,8 +323,11 @@
                 <div class="linkBox" onClick = "return switchPage('errorPage', 'mainPage')">
                     <p>@precise_design</p>
                 </div>
-                <div class="linkBox" onClick = "return switchPage('errorPage', 'mainPage')">
-                    <p>contact info</p>
+                <div class="linkBox" onClick="document.getElementById('teamMembersButton').scrollIntoView()">
+                    <p>Contact Info</p>
+                </div>
+                <div class="linkBox" onClick="return switchPage('errorPage', 'mainPage')">
+                    <p>Our Past Work</p>
                 </div>
             </div>
         </div>
@@ -333,7 +336,7 @@
                 <div id="ring1">
                     <div id="ring2">
                         <div id="ring3">
-                            <h2>designing <br> with <br> vision*</h2>
+                            <h2>Designing <br> With <br> Vision</h2>
                         </div>
                     </div>
                 </div>
@@ -341,7 +344,7 @@
         </div>
 
         <div id="abstractButtons">
-            <h1> our abstract.</h1>
+            <h1>Abstract</h1>
             <div id="buttonWrapper">
                     <button id="1b" class="absBut" onclick="jumpTo(1)">Design Philosophy</button>
                     <button id="2b" class="absBut" onclick="jumpTo(2)">Approach to Problem Solving</button>
@@ -393,7 +396,7 @@
             <div class="card">
                 <div class="image">
                     <img src="https://images.unsplash.com/photo-1587440871875-191322ee64b0?q=80&w=2971&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="brand creation">
-                    <div class="title">brand creation</div>
+                    <div class="title">Brand Creation</div>
                 </div>
                 <div class="desc">
                     Using years of experience in the industry and a constant finger on the cultural pulse, Precision Design can provide your business with a winning brand identity 
@@ -406,7 +409,7 @@
             <div class="card">
                 <div class="image">
                     <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=2969&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="web design">
-                    <div class="title">website design</div>
+                    <div class="title">Website Design</div>
                 </div>
                 <div class="desc">
                     Cutting edge principles, theory, and technology drive our team of designers to create websites that are not only visually stunning, but offer user-centric 
@@ -419,7 +422,7 @@
             <div class="card">
                 <div class="image">
                     <img src="http://static.everypixel.com/ep-libreshot/1076/9638/1011/10312/10769638101110312781.jpg" alt="web analysis">
-                    <div class="title">deep analysis & advising on existing website brands</div>
+                    <div class="title">Deep Analysis & Advising on Existing Website Brands</div>
                 </div>
                 <div class="desc">
                     Our designers will dissect and deconstruct your existing website to highlight key areas for improvement, focusing on enhancing user interaction and 
@@ -432,7 +435,7 @@
             <div class="card">
                 <div class="image">
                     <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="project consultation">
-                    <div class="title">project consultation</div>
+                    <div class="title">Project Consultation</div>
                 </div>
                 <div class="desc">
                     Our expert team offers project consultation services, guiding companies through the design process of their products or services. We combine strategic 
@@ -453,7 +456,7 @@
 
 
 
-    <div id = "errorPage" style = "display: none; text-align: center; background-color: #E0E1DD;">
+    <div id = "errorPage" style = "display: none; text-align: center; background-color: white;">
         <h1 id = "errorSign"><b>404: PAGE NOT FOUND</b></h1>
         <h2>Uh oh! We can't seem to find the page you're looking for.</h2>
         <p><b>Our designers were having a fun time in the office and appear to have sent it on an all-expenses paid trip to Floccinaucinihilipilification.</b>
@@ -545,7 +548,7 @@
         var topics = 5;
         let next = i % topics + 1; 
         jumpTo(next);
-        setTimeout(function() {topicScroll(next); }, 5000);
+        setTimeout(function() {topicScroll(next); }, 3500);
     }
     function toggleTeamMembers() {
       var teamMembers = document.getElementById("teamMembers");
