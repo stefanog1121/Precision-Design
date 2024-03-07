@@ -76,6 +76,10 @@
         font-size: 14px;
     }
 
+    .linkBox:hover {
+        background-color: lightgrey;
+    }
+
     #target {
         position: relative;
         width: auto;
@@ -207,7 +211,7 @@
     #returnButton:hover {
         background-color: lightgrey;
     }
-  #teamMembersButton button {
+  #teamMembersButton button{
       background-color: #415A77;
       color: #E0E1DD; 
       border: none;
@@ -215,59 +219,95 @@
       font-size: 16px;
       cursor: pointer; 
       border-radius: 5px; 
-  }
+    }
+    #teamMembers {
+        background-color: #415A77;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 98%;
+        border-radius: 1rem;
+        height: auto;
+        margin-left: auto; 
+        margin-right: auto;
+        position: relative;
+        padding-top: 1%;
+        padding-bottom: 1%;
+        color: white;
+    }
 </style>
 
 <body onload="topicScroll(1)">
-    <div id="topBar">
-        <div id="teamName">
-           <h1> Precision Design. </h1>
-        </div>
-        <div id="infoBoxes">
-            <div class="linkBox">
-                <p>@precise_design</p>
+    <div id = "mainPage">
+        <div id="topBar">
+            <div id="teamName">
+               <h1> Precision Design. </h1>
             </div>
-            <div class="linkBox">
-                <p>contact info</p>
+            <div id="infoBoxes">
+                <div class="linkBox" onClick = "return switchPage('errorPage', 'mainPage')">
+                    <p>@precise_design</p>
+                </div>
+                <div class="linkBox" onClick = "return switchPage('errorPage', 'mainPage')">
+                    <p>contact info</p>
+                </div>
             </div>
         </div>
-    </div>
-    <div id="target">
-        <div id="targetShape">
-            <div id="ring1">
-                <div id="ring2">
-                    <div id="ring3">
-                        <h2>designing <br> with <br> vision*</h2>
+        <div id="target">
+            <div id="targetShape">
+                <div id="ring1">
+                    <div id="ring2">
+                        <div id="ring3">
+                            <h2>Designing <br> With <br> Vision</h2>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+    
+        <div id="abstractButtons">
+            <h1>Abstract</h1>
+            <div id="buttonWrapper">
+                    <button id="1b" class="absBut" onclick="jumpTo(1)">Design Philosophy</button>
+                    <button id="2b" class="absBut" onclick="jumpTo(2)">Approach to Problem Solving</button>
+                    <button id="3b" class="absBut" onclick="jumpTo(3)">Core Values</button>
+                    <button id="4b" class="absBut" onclick="jumpTo(4)">Client Relationships</button>
+                    <button id="5b" class="absBut" onclick="jumpTo(5)">Innovation and Trends</button>
+            </div>
+            <div id="abstractText"></div>
+        </div>
+    
+        <br>
+    
+        <div id="teamMembersButton" style = "position: relative; margin-top: 28%; margin-left: 1%;">
+            <button onclick="toggleTeamMembers()">Meet Our Team</button>
+        </div>
+        <br>
+        <div id="teamMembers" style="display: none;">
+            <ul>
+                <li>Cayleigh</li>
+                <li>Rigby</li>
+                <li>Stefano</li>
+                <li>Ryan</li>
+                <li>Fitsum</li>
+            </ul>
+        </div>
+        <button onClick = "return switchPage('errorPage', 'mainPage')">Page switching test</button>
     </div>
-  <div id="teamMembersButton">
-      <button onclick="toggleTeamMembers()">Team Members</button>
-  </div>
 
-
-  <div id="teamMembers" style="display: none;">
-      <ul>
-          <li>Cayleigh</li>
-          <li>Rigby</li>
-          <li>Stefan</li>
-          <li>Ryan</li>
-          <li>Fitsum</li>
-      </ul>
-  </div>
-    <div id="abstractButtons">
-        <h1> our abstract.</h1>
-        <div id="buttonWrapper">
-                <button id="1b" class="absBut" onclick="jumpTo(1)">Design Philosophy</button>
-                <button id="2b" class="absBut" onclick="jumpTo(2)">Approach to Problem Solving</button>
-                <button id="3b" class="absBut" onclick="jumpTo(3)">Core Values</button>
-                <button id="4b" class="absBut" onclick="jumpTo(4)">Client Relationships</button>
-                <button id="5b" class="absBut" onclick="jumpTo(5)">Innovation and Trends</button>
-        </div>
-        <div id="abstractText">
-        </div>
+    <div id = "errorPage" style = "display: none; text-align: center; background-color: white;">
+        <h1 id = "errorSign"><b>404: PAGE NOT FOUND</b></h1>
+        <h2>Uh oh! We can't seem to find the page you're looking for.</h2>
+        <p><b>Our designers were having a fun time in the office and appear to have sent it on an all-expenses paid trip to Floccinaucinihilipilification.</b>
+            <br>
+            Where's that? Who knows! In the meantime, here's a way to backtrack before you get just as lost as the missing page.
+        <p>
+        <button id = "returnButton" onClick = "return switchPage('mainPage','errorPage')"><b>Return to Home Page</b></button>
+        <br>
+        <br>
+        <img src = "https://media.istockphoto.com/id/951050840/vector/broken-computer-laptop-drawing.jpg?s=612x612&w=0&k=20&c=m2-58YgqMIKHS_KwGfKFWCmA0xCpvvXlPx-eXJAQVqM="
+            style = "width: 300px; height: 300px;">
+    </div>
+    </div>
 
 <script>
     window.onscroll = function() {resize()};
@@ -336,7 +376,7 @@
         }
     }
 
-    function error(visiblePage, hiddenPage) {
+    function switchPage(visiblePage, hiddenPage) {
         document.getElementById(visiblePage).style.display='block';
         document.getElementById(hiddenPage).style.display='none';
     }
