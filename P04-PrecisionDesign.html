@@ -240,12 +240,12 @@
 <body onload="topicScroll(1)">
     <div id = "mainPage">
         <div id="topBar">
-            <div id="teamName">
+            <div id="teamName" onClick = "return switchPage('errorPage', 'mainPage')">
                <h1> Precision Design. </h1>
             </div>
             <div id="infoBoxes">
                 <div class="linkBox" onClick = "return switchPage('errorPage', 'mainPage')">
-                    <p>@precise_design</p>
+                    <p>@precision_design</p>
                 </div>
                 <div class="linkBox" onClick = "return switchPage('errorPage', 'mainPage')">
                     <p>contact info</p>
@@ -291,7 +291,7 @@
                 <li>Fitsum</li>
             </ul>
         </div>
-        <button onClick = "return switchPage('errorPage', 'mainPage')">Page switching test</button>
+        
     </div>
 
     <div id = "errorPage" style = "display: none; text-align: center; background-color: white;">
